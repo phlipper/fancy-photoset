@@ -61,10 +61,13 @@ The plugin supports multiple photoset galleries per page:
 
 * apiKey - Your Flickr API Key.
 * photosetId - The ID of the photoset you want to load.
-* small - The smaller thumbnail version of the image to show. This corresponds to one of the following Flickr sizes: small, original, medium, thumbnail and square.
-* large - The larger version of the image link to and display in the Fancybox. This corresponds to one of the following Flickr sizes: small, original, medium, thumbnail and square.
+* small - The smaller thumbnail version of the image to show. This corresponds to one of the following Flickr sizes: small, medium, large, original, thumbnail and square.
+* large - The larger version of the image link to and display in the Fancybox. This corresponds to one of the following Flickr sizes: small, medium, large, original, thumbnail and square.
 * captions - true or false: This will create a <span class="caption"> with the photo title if set to true.
 
+## Version
+
+The current version is 0.1.1
 
 ## License
 
