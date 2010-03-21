@@ -50,9 +50,9 @@ The plugin supports multiple photoset galleries per page:
         large: 'original'
       };
 
-      $('#fancybox1').fancyPhotoset(options1);
+      $('#gallery1').fancyPhotoset(options1);
 
-      $('#fancybox2').fancyPhotoset(options2);
+      $('#gallery2').fancyPhotoset(options2);
     });
     </script>
 
