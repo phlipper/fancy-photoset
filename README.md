@@ -65,6 +65,10 @@ The plugin supports multiple photoset galleries per page:
 * large - The larger version of the image link to and display in the Fancybox. This corresponds to one of the following Flickr sizes: small, medium, large, original, thumbnail and square.
 * captions - true or false: This will create a <span class="caption"> with the photo title if set to true.
 
+## Demo
+
+See the demo.html file in the demo folder for an example of how to use the script. All you will need to run the demo is your API Key and a Photoset ID.
+
 ## Version
 
 The current version is 0.1.1
