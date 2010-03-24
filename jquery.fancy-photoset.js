@@ -2,7 +2,7 @@
  * Dual licensed under the MIT (MIT_LICENSE.txt)
  * and GPL Version 2 (GPL_LICENSE.txt) licenses.
  *
- * Version: 0.1.1
+ * Version: 0.2.0
  * Requires jQuery 1.4.2+, Fancybox 1.3.1+
  * Docs: http://phlippers.net/code/fancy-photoset
  */
@@ -14,6 +14,7 @@
      return opts[match.replace(/\{|\}/g, '')];
    });
 
+   // Create a fancyPhotoset for each selector
    return this.each(function() {
      var obj = $(this);
      $(obj).append(
@@ -31,7 +32,12 @@
              ).fancybox()
            )
          );
-       })
+       });
+
+       // Hide all except the first image
+       if (opts.firstOnly) {
+         $(obj).find('li').not(':first').hide();
+       }
      });
    });
  };
@@ -70,6 +76,7 @@
    photosetId : '',
    small      : 'square',
    large      : 'medium',
-   captions   : true
+   captions   : true,
+   firstOnly  : false
  };
 })(jQuery);

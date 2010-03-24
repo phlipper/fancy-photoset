@@ -64,6 +64,7 @@ The plugin supports multiple photoset galleries per page:
 * small - The smaller thumbnail version of the image to show. This corresponds to one of the following Flickr sizes: small, medium, large, original, thumbnail and square.
 * large - The larger version of the image link to and display in the Fancybox. This corresponds to one of the following Flickr sizes: small, medium, large, original, thumbnail and square.
 * captions - true or false: This will create a <span class="caption"> with the photo title if set to true.
+* firstOnly - true or false: Setting true will only display the first image in the photoset on the webpage. All images will still be available to the Fancybox gallery.
 
 ## Demo
 
@@ -71,7 +72,7 @@ See the demo.html file in the demo folder for an example of how to use the scrip
 
 ## Version
 
-The current version is 0.1.1
+The current version is 0.2.0
 
 ## License
 
