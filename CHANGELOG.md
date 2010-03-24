@@ -1,5 +1,10 @@
 # Fancy Photoset CHANGELOG
 
+
+## 0.4.0
+
+* Add ability to pass options directly to fancybox
+
 ## 0.3.0
 
 * Use URLs returned from the API rather than building them from scratch
