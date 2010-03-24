@@ -1,5 +1,9 @@
 # Fancy Photoset CHANGELOG
 
+## 0.3.0
+
+* Use URLs returned from the API rather than building them from scratch
+
 ## 0.2.0
 
 * Add option to show only the first image in the set on the page
