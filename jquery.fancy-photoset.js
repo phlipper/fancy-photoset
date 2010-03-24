@@ -2,7 +2,7 @@
  * Dual licensed under the MIT (MIT_LICENSE.txt)
  * and GPL Version 2 (GPL_LICENSE.txt) licenses.
  *
- * Version: 0.3.0
+ * Version: 0.4.0
  * Requires jQuery 1.4.2+, Fancybox 1.3.1+
  * Docs: http://phlippers.net/code/fancy-photoset
  */
@@ -29,7 +29,7 @@
                $('<img/>').attr({'src': $.fn.fancyPhotoset.urlFor(photo, {size: opts.small}), 'title': photo.title, 'alt': photo.title}).after(
                  (opts.captions ? $('<span/>').addClass('caption').text(photo.title) : '')
                )
-             ).fancybox()
+             ).fancybox(opts.fancybox)
            )
          );
        });
@@ -63,6 +63,7 @@
    small      : 'square',
    large      : 'medium',
    captions   : true,
-   firstOnly  : false
+   firstOnly  : false,
+   fancybox   : {}
  };
 })(jQuery);
