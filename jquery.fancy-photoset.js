@@ -2,7 +2,7 @@
  * Dual licensed under the MIT (MIT_LICENSE.txt)
  * and GPL Version 2 (GPL_LICENSE.txt) licenses.
  *
- * Version: 0.2.0
+ * Version: 0.3.0
  * Requires jQuery 1.4.2+, Fancybox 1.3.1+
  * Docs: http://phlippers.net/code/fancy-photoset
  */
@@ -10,7 +10,7 @@
  $.fn.fancyPhotoset = function(options) {
    var opts    = $.extend($.fn.fancyPhotoset.defaults, options);
    var domId   = 'fancyPhotoset-' + opts.photosetId;
-   var jsonUrl = 'http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key={apiKey}&photoset_id={photosetId}&format=json&jsoncallback=?'.replace(/\{\w+\}/g, function(match) {
+   var jsonUrl = 'http://api.flickr.com/services/rest/?&method=flickr.photosets.getPhotos&api_key={apiKey}&photoset_id={photosetId}&extras=url_sq,url_t,url_s,url_m,url_o&format=json&jsoncallback=?'.replace(/\{\w+\}/g, function(match) {
      return opts[match.replace(/\{|\}/g, '')];
    });
 
@@ -44,30 +44,16 @@
 
  // generate static image url
  $.fn.fancyPhotoset.urlFor = function(photo, options) {
-   var url   = 'http://farm{farm}.static.flickr.com/{server}/{id}_{secret}{size}.{format}';
-   var opts  = $.extend({size: 'square', format: 'jpg'}, options);
-   var sizes = {
-     'small'     : '_m',
-     'original'  : '_o',
-     'medium'    : '',
-     'large'     : '_b',
-     'thumbnail' : '_t',
-     'square'    : '_s'
+   var opts = $.extend({size: 'square'}, options);
+   var urls = {
+     'square'    : photo.url_sq,
+     'thumbnail' : photo.url_t,
+     'small'     : photo.url_s,
+     'medium'    : photo.url_m,
+     'original'  : photo.url_o
    };
 
-   return url.replace(/\{\w+\}/g, function(match) {
-     match = match.replace(/\{|\}/g, '');
-     switch (match) {
-       case 'size':
-        return sizes[opts.size];
-        break;
-       case 'format':
-        return opts.format;
-        break;
-       default:
-        return photo[match];
-     }
-   });
+   return urls[opts.size];
  };
 
  // default options
