@@ -17,55 +17,58 @@ The `fancyPhotoset` method is called on a jQuery selector and takes an options h
 
 Typical usage:
 
-    <div id="gallery"></div>
+``` html
+<div id="gallery"></div>
 
-    <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-      // create a gallery with the default options
-      $('#gallery').fancyPhotoset({apiKey: 'xxx', photosetId: 'xxx'});
-    });
-    </script>
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  // create a gallery with the default options
+  $('#gallery').fancyPhotoset({apiKey: 'xxx', photosetId: 'xxx'});
+});
+</script>
+```
 
 The plugin supports multiple photoset galleries per page:
 
-    <div id="gallery1"></div>
-    <div id="gallery2"></div>
+``` html
+<div id="gallery1"></div>
+<div id="gallery2"></div>
 
-    <script type="text/javascript" charset="utf-8">
-    $(document).ready(function() {
-      // create a gallery with custom options
-      var options1 = {
-        apiKey: 'xxx',
-        photosetId: 'xxx',
-        captions: true,
-        small: 'thumbnail',
-        large: 'medium'
-      };
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  // create a gallery with custom options
+  var options1 = {
+    apiKey: 'xxx',
+    photosetId: 'xxx',
+    captions: true,
+    small: 'thumbnail',
+    large: 'medium'
+  };
 
-      var options2 = {
-        apiKey: 'xxx',
-        photosetId: 'yyy',
-        captions: false,
-        small: 'square',
-        large: 'original'
-      };
+  var options2 = {
+    apiKey: 'xxx',
+    photosetId: 'yyy',
+    captions: false,
+    small: 'square',
+    large: 'original'
+  };
 
-      $('#gallery1').fancyPhotoset(options1);
+  $('#gallery1').fancyPhotoset(options1);
 
-      $('#gallery2').fancyPhotoset(options2);
-    });
-    </script>
-
+  $('#gallery2').fancyPhotoset(options2);
+});
+</script>
+```
 
 ### Options
 
-* apiKey - Your Flickr API Key.
-* photosetId - The ID of the photoset you want to load.
-* small - The smaller thumbnail version of the image to show. This corresponds to one of the following Flickr sizes: square, thumbnail, small, medium and original.
-* large - The larger version of the image link to and display in the Fancybox. This corresponds to one of the following Flickr sizes: square, thumbnail, small, medium and original.
-* captions - true or false: This will create a <span class="caption"> with the photo title if set to true.
-* firstOnly - true or false: Setting true will only display the first image in the photoset on the webpage. All images will still be available to the Fancybox gallery.
-* fancybox - These are standard [Fancybox options](http://fancybox.net/api) that get passed through to the `fancybox` method.
+* `apiKey` - Your Flickr API Key.
+* `photosetId` - The ID of the photoset you want to load.
+* `small` - The smaller thumbnail version of the image to show. This corresponds to one of the following Flickr sizes: square, thumbnail, small, medium and original.
+* `large` - The larger version of the image link to and display in the Fancybox. This corresponds to one of the following Flickr sizes: square, thumbnail, small, medium and original.
+* `captions` - true or false: This will create a <span class="caption"> with the photo title if set to true.
+* `firstOnly` - true or false: Setting true will only display the first image in the photoset on the webpage. All images will still be available to the Fancybox gallery.
+* `fancybox` - These are standard [Fancybox options](http://fancybox.net/api) that get passed through to the `fancybox` method.
 
 ## Demo
 
@@ -77,6 +80,6 @@ The current version is 0.4.0
 
 ## License
 
-The Fancy Photoset plugin is dual licensed *(just like jQuery)* under the MIT (MIT\_LICENSE.txt) and GPL Version 2 (GPL\_LICENSE.txt) licenses.
+The Fancy Photoset plugin is licensed under the MIT (MIT\_LICENSE.txt) license.
 
-Copyright (c) 2010 [Phil Cohen](http://phlippers.net)
+Copyright (c) 2010-2011 [Phil Cohen](http://phlippers.net)

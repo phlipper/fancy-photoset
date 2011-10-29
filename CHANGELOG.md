@@ -1,6 +1,12 @@
 # Fancy Photoset CHANGELOG
 
 
+## 0.5.0
+
+* Rewrite plugin base using coffeescript
+* Refactor plugin base using jQuery plugin best practices
+* Fix bug when displaying multiple photosets per page
+
 ## 0.4.0
 
 * Add ability to pass options directly to fancybox
