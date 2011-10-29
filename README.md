@@ -76,7 +76,11 @@ See the demo.html file in the demo folder for an example of how to use the scrip
 
 ## Version
 
-The current version is 0.4.0
+The current version is 0.5.0
+
+## TODO
+
+* Support additional gallery libraries such as [Nivo Slider](http://nivo.dev7studios.com) and [Galleria](http://galleria.aino.se/)
 
 ## License
 
