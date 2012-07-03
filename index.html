@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>fancy-photoset by phlipper</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>fancy-photoset</h1>
+        <p>A jQuery plugin for viewing Flickr Photostreams in a Fancybox gallery</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/phlipper/fancy-photoset" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/phlipper/fancy-photoset/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/phlipper/fancy-photoset/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Fancy Photoset</h1>
+
+<p>The Fancy Photoset plugin utilizes the power of <a href="http://jquery.com">jQuery</a> and <a href="http://fancybox.net">Fancybox</a> to dynamically create photo galleries from your <a href="http://flickr.com">Flickr</a> Photosets.</p>
+
+<h2>Requirements</h2>
+
+<p>This plugin requires the latest version of the  <a href="http://jquery.com">jQuery</a> library. It has been tested on 1.4.2 but should work on 1.3.2+.</p>
+
+<p>This plugin depends on the <a href="http://fancybox.net">Fancybox</a> plugin. It has been tested on version 1.3.1.</p>
+
+<p>You will also need a <a href="http://flickr.com">Flickr</a> account and a Flickr <a href="http://www.flickr.com/services/api/misc.api_keys.html">API Key</a> to use this plugin.</p>
+
+<h2>Usage</h2>
+
+<p>The <code>fancyPhotoset</code> method is called on a jQuery selector and takes an options hash as the only argument. A Flickr API Key and Photoset ID are the only required options.</p>
+
+<p>Typical usage:</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// create a gallery with the default options</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#gallery'</span><span class="p">).</span><span class="nx">fancyPhotoset</span><span class="p">({</span><span class="nx">apiKey</span><span class="o">:</span> <span class="s1">'xxx'</span><span class="p">,</span> <span class="nx">photosetId</span><span class="o">:</span> <span class="s1">'xxx'</span><span class="p">});</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre>
+</div>
+
+
+<p>The plugin supports multiple photoset galleries per page:</p>
+
+<div class="highlight">
+<pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery1"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"gallery2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// create a gallery with custom options</span>
+  <span class="kd">var</span> <span class="nx">options1</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">apiKey</span><span class="o">:</span> <span class="s1">'xxx'</span><span class="p">,</span>
+    <span class="nx">photosetId</span><span class="o">:</span> <span class="s1">'xxx'</span><span class="p">,</span>
+    <span class="nx">captions</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">small</span><span class="o">:</span> <span class="s1">'thumbnail'</span><span class="p">,</span>
+    <span class="nx">large</span><span class="o">:</span> <span class="s1">'medium'</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">options2</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">apiKey</span><span class="o">:</span> <span class="s1">'xxx'</span><span class="p">,</span>
+    <span class="nx">photosetId</span><span class="o">:</span> <span class="s1">'yyy'</span><span class="p">,</span>
+    <span class="nx">captions</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">small</span><span class="o">:</span> <span class="s1">'square'</span><span class="p">,</span>
+    <span class="nx">large</span><span class="o">:</span> <span class="s1">'original'</span>
+  <span class="p">};</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#gallery1'</span><span class="p">).</span><span class="nx">fancyPhotoset</span><span class="p">(</span><span class="nx">options1</span><span class="p">);</span>
+
+  <span class="nx">$</span><span class="p">(</span><span class="s1">'#gallery2'</span><span class="p">).</span><span class="nx">fancyPhotoset</span><span class="p">(</span><span class="nx">options2</span><span class="p">);</span>
+<span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
+</pre>
+</div>
+
+
+<h3>Options</h3>
+
+<ul>
+<li>
+<code>apiKey</code> - Your Flickr API Key.</li>
+<li>
+<code>photosetId</code> - The ID of the photoset you want to load.</li>
+<li>
+<code>small</code> - The smaller thumbnail version of the image to show. This corresponds to one of the following Flickr sizes: square, thumbnail, small, medium and original.</li>
+<li>
+<code>large</code> - The larger version of the image link to and display in the Fancybox. This corresponds to one of the following Flickr sizes: square, thumbnail, small, medium and original.</li>
+<li>
+<code>captions</code> - true or false: This will create a  with the photo title if set to true.</li>
+<li>
+<code>firstOnly</code> - true or false: Setting true will only display the first image in the photoset on the webpage. All images will still be available to the Fancybox gallery.</li>
+<li>
+<code>fancybox</code> - These are standard <a href="http://fancybox.net/api">Fancybox options</a> that get passed through to the <code>fancybox</code> method.</li>
+</ul><h2>Demo</h2>
+
+<p>See the demo.html file in the demo folder for an example of how to use the script. All you will need to run the demo is your API Key and a Photoset ID.</p>
+
+<h2>Version</h2>
+
+<p>The current version is 0.5.0</p>
+
+<h2>TODO</h2>
+
+<ul>
+<li>Support additional gallery libraries such as <a href="http://nivo.dev7studios.com">Nivo Slider</a> and <a href="http://galleria.aino.se/">Galleria</a>
+</li>
+</ul><h2>License</h2>
+
+<p>The Fancy Photoset plugin is licensed under the MIT (MIT_LICENSE.txt) license.</p>
+
+<p>Copyright (c) 2010-2011 <a href="http://phlippers.net">Phil Cohen</a></p>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/phlipper">phlipper</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-10172882-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
